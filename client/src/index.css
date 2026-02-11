@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: inherit;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Markdown styles */
+.markdown h1 {
+  font-size: 2rem;
+  margin: 1.5em 0 0.5em;
+  color: #333;
+}
+
+.markdown h2 {
+  font-size: 1.6rem;
+  margin: 1.3em 0 0.5em;
+  color: #444;
+}
+
+.markdown h3 {
+  font-size: 1.3rem;
+  margin: 1.2em 0 0.5em;
+  color: #555;
+}
+
+.markdown p {
+  margin: 1em 0;
+  line-height: 1.8;
+}
+
+.markdown ul, .markdown ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.markdown li {
+  margin: 0.5em 0;
+}
+
+.markdown strong {
+  font-weight: 600;
+  color: #333;
+}
