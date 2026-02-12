@@ -7,11 +7,13 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/auth': {
-        target: 'http://localhost:5000',
+        //target: 'http://localhost:5000',
+        target: 'https://life-in-the-uk-test-pern-app.onrender.com/',
         changeOrigin: true,
       },
       '/api': {
-        target: 'http://localhost:5000',
+        //target: 'http://localhost:5000',
+        target: 'https://life-in-the-uk-test-pern-app.onrender.com/',
         changeOrigin: true,
       },
     },
