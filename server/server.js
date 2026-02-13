@@ -25,6 +25,7 @@ app.use(cookieParser());
 // Enhanced CORS configuration to support multiple origins and fix CORS error
 const allowedOrigins = [
   process.env.CLIENT_URL || 'http://localhost:5173',
+  'http://localhost:5173/life-in-the-uk-test-pern-app',
   'https://kenyklam330.github.io',
   'https://kenyklam330.github.io/life-in-the-uk-test-pern-app'
 ];
