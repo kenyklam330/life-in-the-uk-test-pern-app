@@ -6,14 +6,27 @@ function ProtectedRoute({ children }) {
 
   if (loading) {
     return (
-      <div style={styles.loading}>
-        <div style={styles.spinner}></div>
-        <p>Loading...</p>
-      </div>
+      <>
+        {/* Injecting keyframes since inline styles can't do animations */}
+        <style>
+          {`
+            @keyframes spin {
+              0% { transform: rotate(0deg); }
+              100% { transform: rotate(360deg); }
+            }
+          `}
+        </style>
+        <div style={styles.loading}>
+          <div style={styles.spinner}></div>
+          <p>Loading...</p>
+        </div>
+      </>
     );
   }
 
   if (!isAuthenticated) {
+    // replace={true} is good here! It prevents the user from 
+    // hitting "back" and getting stuck in a redirect loop.
     return <Navigate to="/" replace />;
   }
 
@@ -27,7 +40,7 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     height: '100vh',
-    fontSize: '1.5rem',
+    fontFamily: 'sans-serif',
     color: '#667eea',
   },
   spinner: {

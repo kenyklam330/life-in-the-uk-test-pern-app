@@ -13,11 +13,8 @@ import TestResults from './pages/TestResults';
 function App() {
   return (
     <AuthProvider>
-      {/* Using HashRouter for GitHub Pages compatibility.
-          Adding all v7 future flags to remove console warnings and 
-          enable modern React concurrent rendering.
-      */}
       <Router 
+        // Future flags are great for keeping console clean for v7
         future={{ 
           v7_startTransition: true, 
           v7_relativeSplatPath: true 
@@ -28,6 +25,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           {/* Protected Routes */}
+          {/* Removed basename from here - it was causing the 404/Matching error */}
           <Route 
             path="/dashboard" 
             element={
@@ -69,7 +67,7 @@ function App() {
             } 
           />
           
-          {/* Optional: Add a 404 Catch-all */}
+          {/* Catch-all for real 404s within your app */}
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
       </Router>
