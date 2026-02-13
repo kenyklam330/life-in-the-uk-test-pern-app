@@ -23,6 +23,7 @@ function Dashboard() {
       setStats(statsRes.data);
       setChapters(chaptersRes.data);
     } catch (error) {
+      alert('Failed to load dashboard data. Please try again later. Error:' + error.message  );
       console.error('Error loading dashboard:', error);
     } finally {
       setLoading(false);
