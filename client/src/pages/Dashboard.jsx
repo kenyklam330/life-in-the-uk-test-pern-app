@@ -9,7 +9,8 @@ function Dashboard() {
   const [stats, setStats] = useState(null);
   const [chapters, setChapters] = useState([]);
   const [loading, setLoading] = useState(true);
-
+console.log('logging');
+alert('Dashboard loaded');
   useEffect(() => {
     loadDashboardData();
   }, []);
