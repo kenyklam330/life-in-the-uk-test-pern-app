@@ -15,7 +15,8 @@ router.get(
   passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res) => {
     // Successful authentication, redirect to client dashboard
-    res.redirect(`${process.env.CLIENT_URL}/#/dashboard`);
+    //res.redirect(`${process.env.CLIENT_URL}/#/dashboard`);
+    res.redirect(`${process.env.CLIENT_URL}`);
   }
 );
 
