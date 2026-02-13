@@ -28,11 +28,13 @@ export const AuthProvider = ({ children }) => {
         withCredentials: true,
       });
       if (response.data.authenticated) {
-        setUser(response.data.user);
-        setIsAuthenticated(true); // You must set this to true!
+        alert('User is authenticated');
+        setUser(response.data.user);        
+        //setIsAuthenticated(true); // You must set this to true!
       } else {
+        alert('User is NOT authenticated');
         setUser(null);
-        setIsAuthenticated(false);
+        //setIsAuthenticated(false);
       }
     } catch (error) {
       console.error('Auth check failed:', error);
