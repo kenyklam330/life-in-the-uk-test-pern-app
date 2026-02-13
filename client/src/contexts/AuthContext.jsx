@@ -21,15 +21,24 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuthStatus = async () => {
     try {
+      // 1. Always ensure we are in a "loading" state first
+      setLoading(true);
+
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/auth/check`, {
         withCredentials: true,
       });
       if (response.data.authenticated) {
         setUser(response.data.user);
+        setIsAuthenticated(true); // You must set this to true!
+      } else {
+        setUser(null);
+        setIsAuthenticated(false);
       }
     } catch (error) {
       console.error('Auth check failed:', error);
+      setIsAuthenticated(false); // If the API fails, they are definitely not authed
     } finally {
+      // 2. Only after everything is done, we stop the loading spinner
       setLoading(false);
     }
   };

@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://kenyklam330.github.io/life-in-the-uk-test-pern-app",
+  "homepage": "https://life-in-the-uk-test-pern-app-client.onrender.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
