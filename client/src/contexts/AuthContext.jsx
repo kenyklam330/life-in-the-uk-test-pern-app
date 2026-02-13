@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/auth/check`, {
         withCredentials: true,
       });
-      alert(response.data.context);
+      alert(response.data.);
       if (response.data.authenticated) {
         alert('User is authenticated');
         setUser(response.data.user);        
@@ -38,6 +38,16 @@ export const AuthProvider = ({ children }) => {
         //setIsAuthenticated(false);
       }
     } catch (error) {
+      if (error.response) {
+        // The server responded with a status code outside the 2xx range
+        alert("Error Data:", error.response.data); 
+        alert("Error Status:", error.response.status);
+      } else if (error.request) {
+        // The request was made but no response was received (Network error/CORS)
+        alert("No response received. Check CORS or if Server is awake.");
+      } else {
+        alert("Error Message:", error.message);
+      }
       console.error('Auth check failed:', error);
       setIsAuthenticated(false); // If the API fails, they are definitely not authed
     } finally {
