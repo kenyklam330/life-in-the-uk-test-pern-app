@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/life-in-the-uk-test-pern-app/',
+// Change this from '/life-in-the-uk-test-pern-app/' to just '/'
+  base: '/',
   server: {
     port: 5173,
     proxy: {
