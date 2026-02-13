@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
 
       alert(`${import.meta.env.VITE_API_URL}/auth/check`);
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/auth/check`, {
-        withCredentials: false,
+        withCredentials: true,
       });
       alert(JSON.stringify(response.data));
       if (response.data.authenticated) {
