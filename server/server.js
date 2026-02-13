@@ -1,4 +1,6 @@
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import session from 'express-session';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -76,6 +78,18 @@ app.get('/health', (req, res) => {
 app.use((err, req, res, next) => {
   console.error('Error:', err);
   res.status(500).json({ error: 'Internal server error' });
+});
+
+
+// Serve static files from the React app (production build)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const clientBuildPath = path.join(__dirname, '../client/dist');
+app.use(express.static(clientBuildPath));
+
+// SPA fallback: serve index.html for any unknown route not starting with /api or /auth
+app.get(/^\/(?!api|auth|health).*/, (req, res) => {
+  res.sendFile(path.join(clientBuildPath, 'index.html'));
 });
 
 // Start server
