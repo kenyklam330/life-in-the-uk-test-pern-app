@@ -27,9 +27,9 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/auth/check`, {
         withCredentials: true,
       });
-      alert(response.data.);
+      alert(response.data.message);
       if (response.data.authenticated) {
-        alert('User is authenticated');
+        //alert('User is authenticated');
         setUser(response.data.user);        
         //setIsAuthenticated(true); // You must set this to true!
       } else {
